@@ -17,6 +17,7 @@
             justify-content: center;
             min-height: 100vh;
             position: relative;
+            -webkit-overflow-scrolling: touch; /* Abilita il touch scroll su iOS */
         }
         .menu-container {
             width: 80%; /* Larghezza della lista */
@@ -26,6 +27,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             overflow-y: auto; /* Rende la lista scorrevole */
             margin: 20px 0; /* Distanza sopra e sotto la lista */
+            -webkit-overflow-scrolling: touch; /* Abilita il touch scroll su iOS */
         }
         .menu {
             padding: 20px;
@@ -136,14 +138,18 @@
             let touchStartY = 0;
 
             document.addEventListener('touchstart', function (e) {
-                touchStartY = e.touches[0].clientY;
+                if (e.target.closest('.menu-container')) {
+                    touchStartY = e.touches[0].clientY;
+                }
             });
 
             document.addEventListener('touchmove', function (e) {
-                const deltaY = touchStartY - e.touches[0].clientY;
-                menuContainer.scrollTop += deltaY;
-                touchStartY = e.touches[0].clientY;
-                e.preventDefault();
+                if (e.target.closest('.menu-container')) {
+                    const deltaY = touchStartY - e.touches[0].clientY;
+                    menuContainer.scrollTop += deltaY;
+                    touchStartY = e.touches[0].clientY;
+                    e.preventDefault();
+                }
             });
         });
 
