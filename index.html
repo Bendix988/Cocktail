@@ -14,6 +14,7 @@
             height: 100vh;
             margin: 0;
             padding: 20px; /* Add padding for small screens */
+            position: relative; /* Add relative positioning */
         }
         .menu-container {
             max-height: 80vh;
@@ -77,9 +78,26 @@
                 padding: 10px; /* Reduce padding for smaller screens */
             }
         }
+        .background-text-top,
+        .background-text-bottom {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            font-size: 2em;
+            color: black;
+            text-shadow: 2px 2px 4px red;
+            font-weight: bold;
+        }
+        .background-text-top {
+            top: 10px;
+        }
+        .background-text-bottom {
+            bottom: 10px;
+        }
     </style>
 </head>
 <body>
+    <div class="background-text-top">Kaffè Krystal</div>
     <div class="menu-container">
         <div class="menu">
             <div class="cocktail" onclick="toggleIngredients(this)">
@@ -138,6 +156,7 @@
             </div>
         </div>
     </div>
+    <div class="background-text-bottom">noi ci mettiamo il cuore</div>
 
     <script>
         function toggleIngredients(element) {
