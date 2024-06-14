@@ -49,14 +49,16 @@
             background-color: #f0f0f0;
         }
         .cocktail-name {
-            font-size: 1.2em;
+            font-size: 1.4em; /* Increased font size */
             color: #000000;
             margin: 0;
+            font-weight: bold; /* Bold font weight */
         }
         .cocktail-price {
-            font-size: 1em;
+            font-size: 1.2em; /* Increased font size */
             color: #000000;
             margin: 0;
+            font-weight: bold; /* Bold font weight */
         }
         .ingredients {
             display: none;
@@ -165,10 +167,16 @@
     <div class="background-text-bottom">noi ci mettiamo il cuore</div>
 
     <script>
+        let currentlyOpenIngredients = null;
+
         function toggleIngredients(element) {
             const ingredients = element.querySelector('.ingredients');
             if (ingredients) {
+                if (currentlyOpenIngredients && currentlyOpenIngredients !== ingredients) {
+                    currentlyOpenIngredients.style.display = 'none';
+                }
                 ingredients.style.display = ingredients.style.display === 'block' ? 'none' : 'block';
+                currentlyOpenIngredients = ingredients.style.display === 'block' ? ingredients : null;
             }
         }
     </script>
