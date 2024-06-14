@@ -133,13 +133,17 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const menuContainer = document.querySelector('.menu-container');
+            let touchStartY = 0;
 
-            menuContainer.addEventListener('wheel', function (e) {
-                if (e.deltaY !== 0) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    menuContainer.scrollTop += e.deltaY;
-                }
+            menuContainer.addEventListener('touchstart', function (e) {
+                touchStartY = e.touches[0].clientY;
+            });
+
+            menuContainer.addEventListener('touchmove', function (e) {
+                const deltaY = touchStartY - e.touches[0].clientY;
+                menuContainer.scrollTop += deltaY;
+                touchStartY = e.touches[0].clientY;
+                e.preventDefault();
             });
         });
 
