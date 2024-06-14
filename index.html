@@ -13,8 +13,9 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            padding: 20px; /* Add padding for small screens */
-            position: relative; /* Add relative positioning */
+            padding: 20px;
+            position: relative;
+            overflow: hidden; /* Prevent scrolling of the entire page */
         }
         .menu-container {
             max-height: 80vh;
@@ -22,6 +23,7 @@
             padding: 20px;
             width: 100%;
             box-sizing: border-box;
+            position: relative; /* Ensures the list scrolls independently */
         }
         .menu {
             background-color: #ffffff;
@@ -29,7 +31,7 @@
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 600px; /* Limit max width for better readability */
+            max-width: 600px;
         }
         .cocktail {
             background-color: #ffffff;
@@ -66,27 +68,28 @@
         }
         @media (max-width: 600px) {
             .cocktail-name {
-                font-size: 1em; /* Reduce font size for smaller screens */
+                font-size: 1em;
             }
             .cocktail-price, .ingredients {
-                font-size: 0.9em; /* Reduce font size for smaller screens */
+                font-size: 0.9em;
             }
             .menu {
-                padding: 10px; /* Reduce padding for smaller screens */
+                padding: 10px;
             }
             .cocktail {
-                padding: 10px; /* Reduce padding for smaller screens */
+                padding: 10px;
             }
         }
         .background-text-top,
         .background-text-bottom {
-            position: absolute;
+            position: fixed;
             width: 100%;
             text-align: center;
             font-size: 2em;
             color: black;
             text-shadow: 2px 2px 4px red;
             font-weight: bold;
+            z-index: 1; /* Ensure text is above other content */
         }
         .background-text-top {
             top: 10px;
