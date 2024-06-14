@@ -180,6 +180,15 @@
                 ingredients.style.display = ingredients.style.display === 'block' ? 'none' : 'block';
             }
         }
+
+        // Aggiungi un listener per Android per garantire lo scrolling con un dito
+        document.querySelector('.menu-container').addEventListener('touchstart', function (e) {
+            e.stopPropagation();
+        }, { passive: true });
+
+        document.querySelector('.menu-container').addEventListener('touchmove', function (e) {
+            e.stopPropagation();
+        }, { passive: true });
     </script>
 </body>
 </html>
