@@ -14,18 +14,18 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             min-height: 100vh;
             position: relative;
         }
         .menu-container {
-            width: 100%;
-            max-width: 600px;
+            width: 80%; /* Larghezza della lista */
+            max-width: 600px; /* Massima larghezza della lista */
             background-color: #ffffff;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            overflow-y: auto; /* Rende la lista scorrevole */
-            margin: 20px 0; /* Distanza dalla scritta in alto */
+            overflow-y: auto; /* Rende la lista scorrevole se necessario */
+            margin: 50px 0; /* Distanza sopra e sotto la lista */
         }
         .menu {
             padding: 20px;
@@ -67,29 +67,9 @@
                 font-size: 0.9em;
             }
         }
-        .background-text-top,
-        .background-text-bottom {
-            width: 100%;
-            text-align: center;
-            font-size: 2em;
-            color: black;
-            text-shadow: 2px 2px 4px red;
-            font-weight: bold;
-            position: relative;
-            z-index: 1;
-        }
-        .background-text-top {
-            top: 20px;
-            margin-bottom: 20px; /* Distanza dal menu */
-        }
-        .background-text-bottom {
-            bottom: 20px;
-            font-size: 1.5em;
-        }
     </style>
 </head>
 <body>
-    <div class="background-text-top">Kaffè Krystal</div>
     <div class="menu-container">
         <div class="menu">
             <div class="cocktail" onclick="toggleIngredients(this)">
@@ -148,7 +128,6 @@
             </div>
         </div>
     </div>
-    <div class="background-text-bottom">noi ci mettiamo il cuore</div>
 
     <script>
         let currentlyOpenIngredients = null;
