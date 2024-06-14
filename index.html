@@ -19,6 +19,21 @@
             position: relative;
             -webkit-overflow-scrolling: touch; /* Abilita il touch scroll su iOS */
         }
+        .header {
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 2em;
+            margin: 0;
+            font-weight: bold;
+        }
+        .header h2 {
+            font-size: 1.5em;
+            margin: 0;
+        }
         .menu-container {
             width: 80%; /* Larghezza della lista */
             max-width: 600px; /* Massima larghezza della lista */
@@ -73,6 +88,11 @@
     </style>
 </head>
 <body>
+    <div class="header">
+        <h1>Kaffè Krystal</h1>
+        <h2>noi ci mettiamo il cuore</h2>
+    </div>
+    
     <div class="menu-container">
         <div class="menu">
             <div class="cocktail" onclick="toggleIngredients(this)">
