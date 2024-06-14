@@ -13,15 +13,15 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             min-height: 100vh;
-            overflow: hidden; /* Impedisce lo scrolling della pagina */
+            overflow-y: auto; /* Abilita lo scrolling della pagina principale */
             -webkit-overflow-scrolling: touch; /* Abilita il touch scroll su iOS */
         }
         .header {
             text-align: center;
             color: white;
-            margin-bottom: 10px;
+            margin: 20px 0; /* Margine sopra e sotto le scritte */
         }
         .header h1 {
             font-size: 2.5em;
@@ -50,7 +50,8 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             overflow-y: auto; /* Rende la lista scorrevole */
-            margin: 10px 0; /* Distanza sopra e sotto la lista */
+            max-height: 60vh; /* Limita l'altezza massima della lista per dispositivi mobili */
+            margin-bottom: 20px; /* Distanza dal fondo della pagina */
             -webkit-overflow-scrolling: touch; /* Abilita il touch scroll su iOS */
         }
         .menu {
