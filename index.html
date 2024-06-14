@@ -9,16 +9,16 @@
             background-color: #2F6BFD;
             font-family: Arial, sans-serif;
             display: flex;
-            flex-direction: column; /* Align children vertically */
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between; /* Distribute space between header, menu and footer */
+            justify-content: space-between; /* Distribute space between header, menu, and footer */
             height: 100vh;
             margin: 0;
             padding: 20px;
             position: relative;
         }
         .menu-container {
-            flex: 1; /* Take remaining space */
+            flex: 1;
             overflow-y: auto;
             padding: 20px;
             width: 100%;
@@ -26,12 +26,12 @@
             background-color: #ffffff;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 10px; /* Adjusted top margin */
+            margin-top: 10px;
         }
         .menu {
             padding: 20px;
             max-width: 600px;
-            margin: 0 auto; /* Center align within parent */
+            margin: 0 auto;
             box-sizing: border-box;
         }
         .cocktail {
@@ -91,13 +91,17 @@
             color: black;
             text-shadow: 2px 2px 4px red;
             font-weight: bold;
+            z-index: 1; /* Ensure text is above other content */
+            pointer-events: none; /* Allow clicks to pass through */
+            position: fixed; /* Fix the position */
+            left: 0;
         }
         .background-text-top {
-            margin-top: 10px; /* Adjusted top margin */
+            top: 10px;
         }
         .background-text-bottom {
-            margin-bottom: 10px; /* Adjusted bottom margin */
-            font-size: 1.5em; /* Adjusted font size */
+            bottom: 10px; /* Adjusted bottom position */
+            font-size: 1.5em;
             color: black;
             font-weight: bold;
         }
