@@ -6,23 +6,22 @@
     <title>Lista Cocktail</title>
     <style>
         body {
-            background-color: #2F6BFD;
+            background-color: #2F6BFD; /* Puoi cambiare il colore di sfondo qui */
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            overflow: hidden; /* Impedisce lo scrolling della pagina */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            position: relative;
+            overflow: hidden; /* Impedisce lo scrolling della pagina */
             -webkit-overflow-scrolling: touch; /* Abilita il touch scroll su iOS */
         }
         .header {
             text-align: center;
             color: white;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
         .header h1 {
             font-size: 2.5em;
@@ -45,18 +44,17 @@
                 1px 1px 0 #000;
         }
         .menu-container {
-            width: 80%; /* Larghezza della lista */
+            width: 90%; /* Adatta la larghezza per dispositivi mobili */
             max-width: 600px; /* Massima larghezza della lista */
             background-color: #ffffff;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             overflow-y: auto; /* Rende la lista scorrevole */
-            margin: 20px 0; /* Distanza sopra e sotto la lista */
+            margin: 10px 0; /* Distanza sopra e sotto la lista */
             -webkit-overflow-scrolling: touch; /* Abilita il touch scroll su iOS */
         }
         .menu {
-            padding: 20px;
-            min-height: 100%; /* Altezza minima per consentire lo scrolling */
+            padding: 10px; /* Riduci il padding per dispositivi mobili */
         }
         .cocktail {
             background-color: #ffffff;
@@ -88,6 +86,12 @@
             border-radius: 5px;
         }
         @media (max-width: 600px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            .header h2 {
+                font-size: 1.2em;
+            }
             .cocktail-name, .cocktail-price {
                 font-size: 1em;
             }
@@ -163,36 +167,16 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const menuContainer = document.querySelector('.menu-container');
-            let touchStartY = 0;
-
-            document.addEventListener('touchstart', function (e) {
-                if (e.target.closest('.menu-container')) {
-                    touchStartY = e.touches[0].clientY;
-                }
-            });
-
-            document.addEventListener('touchmove', function (e) {
-                if (e.target.closest('.menu-container')) {
-                    const deltaY = touchStartY - e.touches[0].clientY;
-                    menuContainer.scrollTop += deltaY;
-                    touchStartY = e.touches[0].clientY;
-                    e.preventDefault();
-                }
-            });
-        });
-
-        let currentlyOpenIngredients = null;
-
         function toggleIngredients(element) {
+            const allIngredients = document.querySelectorAll('.ingredients');
+            allIngredients.forEach(ingredient => {
+                if (ingredient !== element.querySelector('.ingredients')) {
+                    ingredient.style.display = 'none';
+                }
+            });
             const ingredients = element.querySelector('.ingredients');
             if (ingredients) {
-                if (currentlyOpenIngredients && currentlyOpenIngredients !== ingredients) {
-                    currentlyOpenIngredients.style.display = 'none';
-                }
                 ingredients.style.display = ingredients.style.display === 'block' ? 'none' : 'block';
-                currentlyOpenIngredients = ingredients.style.display === 'block' ? ingredients : null;
             }
         }
     </script>
