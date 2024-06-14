@@ -1,101 +1,170 @@
-body {
-    background-color: #2F6BFD;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-}
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Cocktail</title>
+    <style>
+        body {
+            background-color: #2F6BFD;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px; /* Add padding for small screens */
+            position: relative; /* Add relative positioning */
+        }
+        .menu-container {
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .menu {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px; /* Limit max width for better readability */
+        }
+        .cocktail {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin: 10px 0;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .cocktail:hover {
+            background-color: #f0f0f0;
+        }
+        .cocktail-name {
+            font-size: 1.2em;
+            color: #000000;
+            margin: 0;
+        }
+        .cocktail-price {
+            font-size: 1em;
+            color: #000000;
+            margin: 0;
+        }
+        .ingredients {
+            display: none;
+            margin-top: 10px;
+            font-size: 1em;
+            color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        @media (max-width: 600px) {
+            .cocktail-name {
+                font-size: 1em; /* Reduce font size for smaller screens */
+            }
+            .cocktail-price, .ingredients {
+                font-size: 0.9em; /* Reduce font size for smaller screens */
+            }
+            .menu {
+                padding: 10px; /* Reduce padding for smaller screens */
+            }
+            .cocktail {
+                padding: 10px; /* Reduce padding for smaller screens */
+            }
+        }
+        .background-text-top,
+        .background-text-bottom {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            font-size: 2em;
+            color: black;
+            text-shadow: 2px 2px 4px red;
+            font-weight: bold;
+        }
+        .background-text-top {
+            top: 10px;
+        }
+        .background-text-bottom {
+            bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-text-top">Kaffè Krystal</div>
+    <div class="menu-container">
+        <div class="menu">
+            <div class="cocktail" onclick="toggleIngredients(this)">
+                <p class="cocktail-name">Aperol Spritz</p>
+                <p class="cocktail-price">6 €</p>
+                <div class="ingredients">Aperol, Prosecco, Soda</div>
+            </div>
+            <div class="cocktail" onclick="toggleIngredients(this)">
+                <p class="cocktail-name">Campari Spritz</p>
+                <p class="cocktail-price">6 €</p>
+                <div class="ingredients">Campari, Prosecco, Soda</div>
+            </div>
+            <div class="cocktail" onclick="toggleIngredients(this)">
+                <p class="cocktail-name">Venturo Spritz</p>
+                <p class="cocktail-price">6 €</p>
+                <div class="ingredients">Venturo, Prosecco, Soda</div>
+            </div>
+            <div class="cocktail" onclick="toggleIngredients(this)">
+                <p class="cocktail-name">Negroni</p>
+                <p class="cocktail-price">6 €</p>
+                <div class="ingredients">Campari, Vermut rosso, Gin</div>
+            </div>
+            <div class="cocktail" onclick="toggleIngredients(this)">
+                <p class="cocktail-name">103</p>
+                <p class="cocktail-price">6 €</p>
+                <div class="ingredients">Campari, Martini Dry, Biancosarti</div>
+            </div>
+            <div class="cocktail" onclick="toggleIngredients(this)">
+                <p class="cocktail-name">Americano</p>
+                <p class="cocktail-price">6 €</p>
+                <div class="ingredients">Vermut rosso, Campari, Soda</div>
+            </div>
+            <div class="cocktail" onclick="toggleIngredients(this)">
+                <p class="cocktail-name">Il MiTo (Milano Torino)</p>
+                <p class="cocktail-price">7 €</p>
+                <div class="ingredients">Vermut rosso, Campari</div>
+            </div>
+            <div class="cocktail" onclick="toggleIngredients(this)">
+                <p class="cocktail-name">Gin Tonic</p>
+                <p class="cocktail-price">6 €</p>
+                <div class="ingredients">Gin, Tonica</div>
+            </div>
+            <div class="cocktail" onclick="toggleIngredients(this)">
+                <p class="cocktail-name">Il Sorriso del Sole</p>
+                <p class="cocktail-price">7 €</p>
+                <div class="ingredients">Rum chiaro, Sciroppo di mango, Succo d'arancia, Succo di lime</div>
+            </div>
+            <div class="cocktail" onclick="toggleIngredients(this)">
+                <p class="cocktail-name">Fenicottero</p>
+                <p class="cocktail-price">7 €</p>
+                <div class="ingredients">Rum chiaro, Triple Sec, Succo di ananas, Succo di lime, Sciroppo di zucchero, Granatina</div>
+            </div>
+            <div class="cocktail" onclick="toggleIngredients(this)">
+                <p class="cocktail-name">Calice Vino o Prosecco</p>
+                <p class="cocktail-price">3,5 €</p>
+            </div>
+        </div>
+    </div>
+    <div class="background-text-bottom">noi ci mettiamo il cuore</div>
 
-.header, .footer {
-    position: fixed;
-    width: 100%;
-    text-align: center;
-    font-size: 2em;
-    color: black;
-    text-shadow: 2px 2px 4px red;
-    font-weight: bold;
-    z-index: 10;
-}
-
-.header {
-    top: 10px;
-}
-
-.footer {
-    bottom: 10px;
-}
-
-.menu-container {
-    max-height: 80vh;
-    overflow-y: auto;
-    padding: 20px;
-    width: 100%;
-    box-sizing: border-box;
-    position: relative;
-}
-
-.menu {
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 600px;
-}
-
-.cocktail {
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    margin: 10px 0;
-    padding: 15px;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.cocktail:hover {
-    background-color: #f0f0f0;
-}
-
-.cocktail-name {
-    font-size: 1.2em;
-    color: #000000;
-    margin: 0;
-}
-
-.cocktail-price {
-    font-size: 1em;
-    color: #000000;
-    margin: 0;
-}
-
-.ingredients {
-    display: none;
-    margin-top: 10px;
-    font-size: 1em;
-    color: #333;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-}
-
-@media (max-width: 600px) {
-    .cocktail-name {
-        font-size: 1em;
-    }
-    .cocktail-price, .ingredients {
-        font-size: 0.9em;
-    }
-    .menu {
-        padding: 10px;
-    }
-    .cocktail {
-        padding: 10px;
-    }
-}
+    <script>
+        function toggleIngredients(element) {
+            const ingredients = element.querySelector('.ingredients');
+            if (ingredients) {
+                ingredients.style.display = ingredients.style.display === 'block' ? 'none' : 'block';
+            }
+        }
+    </script>
+</body>
+</html>
