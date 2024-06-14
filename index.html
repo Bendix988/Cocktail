@@ -135,11 +135,11 @@
             const menuContainer = document.querySelector('.menu-container');
             let touchStartY = 0;
 
-            menuContainer.addEventListener('touchstart', function (e) {
+            document.addEventListener('touchstart', function (e) {
                 touchStartY = e.touches[0].clientY;
             });
 
-            menuContainer.addEventListener('touchmove', function (e) {
+            document.addEventListener('touchmove', function (e) {
                 const deltaY = touchStartY - e.touches[0].clientY;
                 menuContainer.scrollTop += deltaY;
                 touchStartY = e.touches[0].clientY;
